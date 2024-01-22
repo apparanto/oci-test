@@ -17,6 +17,10 @@ export default async function Order({
         <h3 className="text-l mb-4 mt-4">Order JSON</h3>
         <JsonViewer json={orderJson} />
       </section>
+      <section>
+        <h3 className="text-l mb-4 mt-4">Raw JSON</h3>
+        {orderJsonString}
+      </section>
     </main>
   );
 }
