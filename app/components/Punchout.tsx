@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { FormEvent } from "react";
+import { FormEvent } from 'react';
 
 export default function Punchout() {
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    console.log("Starting Punchout");
+    console.log('Starting Punchout');
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const userId = formData.get("userId");
-    const password = formData.get("password");
+    const userId = formData.get('userId');
+    const password = formData.get('password');
 
-    const response = await fetch("/api/oci/sessions", {
-      method: "POST",
+    const response = await fetch('/api/oci/punchout', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ userId, password }),
     });
@@ -38,8 +38,7 @@ export default function Punchout() {
 
         <button
           type="submit"
-          className="p-1 border mt-4 bg-slate-500 hover:bg-slate-600 text-slate-50"
-        >
+          className="p-1 border mt-4 bg-slate-500 hover:bg-slate-600 text-slate-50">
           Punchout
         </button>
       </form>
