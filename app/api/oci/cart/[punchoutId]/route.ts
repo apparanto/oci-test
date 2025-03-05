@@ -47,12 +47,16 @@ export async function POST(request: NextRequest, { params: { punchoutId } }: { p
             'value': article['quantity']
         });
         items.push({
+            'key': `NEW_ITEM-PRICE[${i + 1}]`,
+            'value': article['unit_price']
+        });
+        items.push({
             'key': `NEW_ITEM-CURRENCY[${i + 1}]`,
             'value': 'EUR'
         });
         items.push({
             'key': `NEW_ITEM-UNIT[${i + 1}]`,
-            'value': 'EA'
+            'value': 'ST'
         });
     }
     const result2 = {
